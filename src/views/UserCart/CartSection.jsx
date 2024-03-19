@@ -59,6 +59,7 @@ export default function CartSection() {
             let response = await httpClient.get(url)
             setItems(response.data["cart_items"])
             
+            
         }catch(error) {
             alert(error)
         } finally {
@@ -152,7 +153,13 @@ export default function CartSection() {
                         placeholder="Search item....."
                         />
                     </form>
-                    <button className="shop-btn checkout-btn" onClick={checkooutOpened}>Checkout</button>
+
+                    {items.length !== 0 ? (
+                        <button className="shop-btn checkout-btn" onClick={checkooutOpened}>Checkout</button>
+                    ) : (
+                        <button className="shop-btn checkout-btn-inactive">Checkout</button>
+                    )}
+
                 </div>
                 <div className="store-container-content">
                     {loading ? (

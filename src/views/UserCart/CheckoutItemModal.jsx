@@ -94,6 +94,7 @@ export default function CheckoutItemModal({cartData = {}, checkoutClosed, msgMod
         <section className="checkout-modal-section">
             <div className="checkout-header">
                 <h1><MdOutlineShoppingCartCheckout />CHECKOUT</h1>
+                <p>( Kindly Fill Up All Input )</p>
             </div>
             {loading ? (
                 <section className='loader--section'>

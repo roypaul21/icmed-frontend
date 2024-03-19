@@ -939,6 +939,7 @@ body {
   justify-content: center;
   align-items: center;
   color: var(--color2);
+  flex-direction: column;
 }
 
 .checkout-header > h1 {
@@ -946,6 +947,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  letter-spacing: 2px;
+}
+
+.checkout-header > p {
+  color: var(--color3);
+  letter-spacing: 1px;
 }
 
 .checkout-modal-content {
@@ -1090,6 +1097,14 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 18px;
+}
+
+.checkout-btn-inactive {
+  background-color:var(--color2);
+  color: var(--color1);
+  opacity: 0.5;
+  border-width: 0;
+  cursor: none;
 }
 
 .checkout-contact-info {
@@ -1238,6 +1253,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
+  overflow: hidden;
 }
 
 .user-order-container {
@@ -1246,6 +1263,78 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+.user-order-filter {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.user-order-filter > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+  gap: 5px;
+  border: 1px solid var(--color3);
+}
+
+.user-order-filter > div > input {
+  border-width: 0;
+}
+
+.user-order-filter > div > input:focus{
+  outline: none;
+}
+
+#date-picker-icon {
+  font-size: 30px;
+}
+
+#date-picker {
+  border-width: 0;
+  width: 8rem;
+}
+
+#date-picker:focus{
+  outline: none;
+}
+
+.user-order-filter > div > select {
+  border-width: 0;
+  background-color: transparent;
+}
+
+.user-order-filter > button{
+  border-width: 0;
+  background-color: var(--color2);
+  padding: 0px 20px 0 20px;
+  color: var(--color1);
+}
+
+.thead-order{
+  font-size: 20px;
+}
+
+.thead-order th {
+  padding: 10px 30px 10px 30px;
+  background-color: var(--color2);
+  color: var(--color1);
+  border-right: 2px solid var(--color1);
+}
+
+.tbody-order > tr > td > button {
+  border-width: 0;
+  background-color: transparent;
+  color: var(--color2);
+}
+
+.tbody-order td {
+  border: 2px solid var(--color2);
+}
+
+
+
 
 /*----FOOTER SECTION----*/
 .footer-section {
