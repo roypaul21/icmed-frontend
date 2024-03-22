@@ -19,7 +19,7 @@ function DefaultNavbar({loginModalOpened}) {
                     src="images/icmed_logo.svg"
                     className="d-inline-block align-top"
                     alt="C-Shop"
-                    width={100}
+                    width={90}
                 />
             </Link>
         </Navbar.Brand>

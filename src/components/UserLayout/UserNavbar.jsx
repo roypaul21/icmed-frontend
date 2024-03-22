@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { FaCartShopping } from "react-icons/fa6";
 import { FaStore } from "react-icons/fa6";
 import { FaBox } from "react-icons/fa6";
+import { FaAddressBook } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import Logout from '../Logout';
 
@@ -24,7 +25,7 @@ function UserNavbar({}) {
                     src="images/icmed_logo.svg"
                     className="d-inline-block align-top"
                     alt="C-Shop"
-                    width={100}
+                    width={90}
                 />
             </Link>
         </Navbar.Brand>
@@ -34,6 +35,7 @@ function UserNavbar({}) {
             <Link id="nav--font" className="nav-link" to="/store"><FaStore/>Store</Link>
             <Link id="nav--font" className="nav-link" to="/cart"><FaCartShopping />Cart</Link>
             <Link id="nav--font" className="nav-link" to="/order"><FaBox />My Orders</Link>
+            <Link id="nav--font" className="nav-link"><FaAddressBook/>Contact Us</Link>
           </Nav>
         </Navbar.Collapse>
         

@@ -1,4 +1,3 @@
-import { lazy } from "react";
 import { Link } from "react-router-dom";
 import {motion, AnimatePresence} from "framer-motion"
 
@@ -42,7 +41,7 @@ export default function HeroSection() {
                     initial={{y: '100%'}}
                     animate={{y:0}}
                     transition={{type: 'tween', delay: 1.2, duration:0.3}}>
-                        Enjoy a simple shop with <span>ic-mart</span>
+                        Putting simplicity at the heart of <span>Medical</span> Essentials
                     </motion.p>
                 </motion.div>
                 <div className="hero-section-btn overflow-container">

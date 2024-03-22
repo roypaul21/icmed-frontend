@@ -112,7 +112,7 @@ export default function CartSection() {
 
     return (
         <section className="cart-section">
-            <AnimatePresence>
+            <AnimatePresence mode="wait" initial={false}>
                 { isCheckout && <div className="background-modal">
                         <motion.div className="checkout-item-modal"
                         initial={{y: '-100vh'}}
@@ -121,19 +121,21 @@ export default function CartSection() {
                             <div className="close-modal-btn"><IoClose id="checkout-closed" onClick={checkoutClosed}/></div>
                             <CheckoutItemModal cartData={items} checkoutClosed={checkoutClosed} msgModalOpened={msgModalOpened} />
                         </motion.div>
-                </div>
-                }
+                </div>}
             </AnimatePresence>
-            { msgModal && <div className="background-modal"> 
-                <motion.div className="checkout-msg-modal"
-                 initial={{y: '-100vh'}}
-                 animate={{y:0}}
-                 exit={{y:'-100vh'}}>
-                    <h1><IoBagCheck />Cart Item Checkout Successfully</h1>
-                    <Link to="/order"><button className="shop-btn view-order-btn" onClick={msgModalClosed}>View Order</button></Link>
-                </motion.div>
-            </div>
-            }
+
+            <AnimatePresence mode="wait" initial={false}>
+                { msgModal && <div className="background-modal"> 
+                    <motion.div className="checkout-msg-modal"
+                    initial={{y: '-100vh'}}
+                    animate={{y:0}}
+                    exit={{y:'-100vh'}}>
+                        <h1><IoBagCheck />Cart Item Checkout Successfully</h1>
+                        <Link to="/order"><button className="shop-btn view-order-btn" onClick={msgModalClosed}>View Order</button></Link>
+                    </motion.div>
+                </div>}
+            </AnimatePresence>
+            
             <div className="store-container">
                 <div className="store-header overflow-container">
                     <motion.h1

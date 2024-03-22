@@ -7,6 +7,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import { FaAddressBook } from "react-icons/fa";
 import { FaStore } from "react-icons/fa6";
 import { MdAddBox } from "react-icons/md";
+import { FaBox } from "react-icons/fa6";
 import Logout from '../Logout';
 
 function AdminNavbar({}) {
@@ -33,6 +34,7 @@ function AdminNavbar({}) {
           <Nav className="me-auto">
             <Link id="nav--font" className="nav-link" to="/store"><FaStore/>Store</Link>
             <Link id="nav--font" className="nav-link" to="/cart"><FaCartShopping />Cart</Link>
+            <Link id="nav--font" className="nav-link" to="/order"><FaBox />My Orders</Link>
             <Link id="nav--font" className="nav-link"><FaAddressBook/>Contact Us</Link>
             <Link to="/additem" id="nav--font" className="nav-link"><MdAddBox />Add Item</Link>
           </Nav>

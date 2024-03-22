@@ -8,6 +8,7 @@ import { TiMinus } from "react-icons/ti";
 import { FaSquareCheck } from "react-icons/fa6";
 import RemoveItemCart from "../UserCart/RemoveItemCart";
 import { ToastContainer, toast } from 'react-toastify';
+import {motion, AnimatePresence} from "framer-motion"
 
 export default function ItemPage(){
     const param = useParams()
@@ -170,28 +171,37 @@ export default function ItemPage(){
           ) : ( 
         <section className="view-item-section">
             <ToastContainer />
+            <AnimatePresence mode="wait" initial={false}>
             {imgModal && <div className="background-modal">
-                <div className="view-item-modal-content">
+                <motion.div className="view-item-modal-content"
+                initial={{y: '-100vh'}}
+                animate={{y:0}}
+                exit={{y:'-100vh'}}>
                     <div className="view-item-modal-img-zoom">
                         <img src={`${import.meta.env.VITE_CLOUDINARY_IMAGE_URL}${imgZoom}`}/>
                     </div>
                     <div className="view-item-modal-close">
                        <button onClick={imgModalClosed}>Close</button>
                     </div>
-                </div>
-            </div>   
-            }
-            {addcartModal && <div className="background-modal">
-                <div className="add-cart-modal">
-                    <h1><FaSquareCheck />Item Added To Cart!</h1>
-                    <p>{item["item_name"]}</p>
-                    <div className="add-cart-btn">
-                        <Link to="/cart"><button className="shop-btn view-cart-btn">View Cart</button></Link>
-                        <button className="shop-btn" onClick={addItemCartClose}>Close</button>
-                    </div>
-                </div>
-             </div>
-            }
+                </motion.div>
+            </div>}
+            </AnimatePresence>
+
+            <AnimatePresence mode="wait" initial={false}>
+                {addcartModal && <div className="background-modal">
+                    <motion.div className="add-cart-modal"
+                    initial={{y: '-100vh'}}
+                    animate={{y:0}}
+                    exit={{y:'-100vh'}}>
+                        <h1><FaSquareCheck />Item Added To Cart!</h1>
+                        <p>{item["item_name"]}</p>
+                        <div className="add-cart-btn">
+                            <Link to="/cart"><button className="shop-btn view-cart-btn">View Cart</button></Link>
+                            <button className="shop-btn" onClick={addItemCartClose}>Close</button>
+                        </div>
+                    </motion.div>
+                </div>}
+            </AnimatePresence>
             <div>
                 <div className="view-item-left-container">
                     <div className="view-item-main-img" onClick={() => toggleModal(item["item_image_one"])}>

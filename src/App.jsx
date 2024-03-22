@@ -6,7 +6,7 @@ import './App.css'
 import { SessionProvider } from './components/SessionContext';
 import 'react-toastify/dist/ReactToastify.css';
 import "react-datepicker/dist/react-datepicker.css";
-
+import 'aos/dist/aos.css'
 function App() {
 
   return (

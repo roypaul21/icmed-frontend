@@ -4,6 +4,9 @@ import httpClient from "../../components/HttpsClient"
 import Table from 'react-bootstrap/Table';
 import DatePicker from "react-datepicker";
 import { CiCalendarDate } from "react-icons/ci";
+import { IoClose } from "react-icons/io5";
+import OrderDetails from "./OrderDetails";
+import {motion, AnimatePresence} from "framer-motion"
 
 export default function UserOrder() {
     const [loading, setLoading] = useState(true)
@@ -13,6 +16,9 @@ export default function UserOrder() {
     const [orderID, setOrderID] = useState()
     const [paymentMethod, setPaymentMethod] = useState("")
     const [status, setStatus] = useState("")
+
+    const [isDetailOpen, setIsDetailOpen] = useState(false)
+    const [orderDetails, setOrderDetails] = useState([])
 
     const onSubmit = async(e) => {
         e.preventDefault()
@@ -41,10 +47,29 @@ export default function UserOrder() {
             setLoading(false)
         })
     }
-    
 
+    const OrderDetailsOpened = (order) => {
+        setOrderDetails(order)
+        if(!isDetailOpen) setIsDetailOpen(true)
+    }
+
+    const OrderDetailsClosed = () => {
+        setIsDetailOpen(false)
+    }
+    
     return (
         <section className="user-order-section">
+            <AnimatePresence mode="wait" initial={false}>
+            {isDetailOpen && <section className="background-modal"> 
+                <motion.div className="order-details-modal"
+                initial={{y: '-100vh'}}
+                animate={{y:0}}
+                exit={{y:'-100vh'}}>
+                    <div className="order-details-close"><IoClose onClick={OrderDetailsClosed} style={{cursor:"pointer"}}/></div>
+                    <OrderDetails orderDetails={orderDetails}/>
+                </motion.div>
+            </section>}
+            </AnimatePresence>
             <div><h1>My Orders</h1></div>
             <form className="user-order-filter" onSubmit={onSubmit}>
                 <div>
@@ -66,7 +91,9 @@ export default function UserOrder() {
                 <div>
                     <select  onChange={(e) => setStatus(e.target.value)}>
                         <option value="">Status</option>
-                        <option value="transit">Transit</option>
+                        <option value="processing">Processing</option>
+                        <option value="shipping">Shipping</option>
+                        <option value="delivery">Out For Delivery</option>
                         <option value="delivered">Delivered</option>
                     </select>
                 </div>
@@ -93,16 +120,25 @@ export default function UserOrder() {
                                 {orders.map(order => (
                                     <tr key={order["user_order_id"]}>
                                         <td>{order["user_order_id"]}</td>
-                                        <td>{order["order_created"]}</td>
+                                        <td>{new Date(order["order_date"]).toLocaleDateString('en-US', {
+                                            day: 'numeric',
+                                            month: 'short',
+                                            year: 'numeric'
+                                        })}</td>
                                         { order["payment_method"] === "crebit" ? (
                                             <td>Credit or Debit Card</td>
                                         ):(
                                             <td>Cash on Delivery</td>
                                         )}
                                         <td>${order["order_total_cost"]}.00</td>
-                                        <td>transit</td>
                                         <td>
-                                            <button>View Detail</button>
+                                            <div className="status-circle">
+                                                <div className={order["order_status"]}></div>
+                                                <p>{order["order_status"]}</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button onClick={() => OrderDetailsOpened(order)}>View Detail</button>
                                         </td>
                                     </tr>
                                 ))} 
