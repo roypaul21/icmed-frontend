@@ -85,7 +85,8 @@ export default function PageTwo() {
                     </div>
                 </div>
                 <div className="page-two-right-btm-img">
-                    <div><img src="images/icmed_logo.svg"/></div>
+                    <div><img src="images/dogmed.svg"/></div>
+                    <div>Contact Us</div>
                 </div>
             </div>
         </section>

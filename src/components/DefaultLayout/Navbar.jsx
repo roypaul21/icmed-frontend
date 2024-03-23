@@ -18,7 +18,7 @@ function DefaultNavbar({loginModalOpened}) {
                 <img
                     src="images/icmed_logo.svg"
                     className="d-inline-block align-top"
-                    alt="C-Shop"
+                    alt="icmed"
                     width={90}
                 />
             </Link>
@@ -26,9 +26,9 @@ function DefaultNavbar({loginModalOpened}) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" id='nav-bar-link-container'>
-            <Link id="nav--font" className="nav-link" to="/landing">Store</Link>
             <Link id="nav--font" className="nav-link">About Us</Link>
             <Link to="/signup" id="nav--font" className="nav-link">Register</Link>
+            <Link to="/" id="nav--font" className="nav-link">Contact Us</Link>
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">

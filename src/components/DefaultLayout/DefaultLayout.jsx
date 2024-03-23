@@ -4,6 +4,7 @@ import SignIn from "../../views/SignInModal/SignIn";
 import React, { useState, useContext } from 'react';
 import { SessionContext } from "../SessionContext";
 import {motion, AnimatePresence} from "framer-motion"
+import DefaultFooter from "./DefaultFooter";
 
 export default function DefaultLayout() {
     
@@ -31,6 +32,7 @@ export default function DefaultLayout() {
             </AnimatePresence>
             <DefaultNavbar loginModalOpened={LoginOpenedModal}/>
             <Outlet />
+            <DefaultFooter loginModalOpened={LoginOpenedModal}/>
         </>
     )
 }

@@ -321,7 +321,7 @@ body {
 
 .page-two-container-right {
   width: 100%;
-  padding: 0 120px 20px 60px;
+  padding: 0 120px 0px 60px;
   overflow: hidden;
   height: 100%;
   gap: 5rem;
@@ -386,6 +386,7 @@ width: 100%;
   width: 100%;
   display: flex;
   align-items: flex-end; 
+  flex-direction: column;
 }
 .page-two-right-btm-img > div {
   width: 100%;
@@ -394,6 +395,98 @@ width: 100%;
 .page-two-right-btm-img > div > img {
   width: 100%;
   object-fit: cover;
+}
+
+.page-two-right-btm-img > div:nth-child(2) {
+  background-color: var(--color2);
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color1);
+  font-size: 40px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+/*----DEFAULT FOOTER SECTION---*/
+.default-footer-section {
+  width: 100%;
+  background-color: var(--color1);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.default-footer-content {
+  display: flex;
+  flex-direction: column;
+  padding: 100px 0 20px 0;
+  gap: 2rem;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.default-footer-social {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+}
+
+.default-footer-social > div {
+  width: clamp(50px, 10vw, 60px);
+  height: clamp(50px, 10vw, 60px);
+  background-color: var(--color2);
+  border-radius: clamp(50px, 10vw, 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  color: var(--color1);
+} 
+
+.default-footer-navlink {
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  width: 100%;
+  justify-content: center;
+}
+
+#footer--font {
+  font-size: 20px;
+  color: var(--color3);
+}
+
+.default-footer-btm {
+  height: 100%;
+  width: 100%;
+  background-color: var(--color2);
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: center;
+  overflow: hidden;
+  align-items: center;
+  gap: 1rem;
+}
+
+.default-footer-btm > div {
+  width: clamp(70px, 1vw, 80px);
+}
+
+.default-footer-btm > div > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.default-footer-btm > p {
+  margin: 0;
+  color: var(--color1);
 }
 
 
